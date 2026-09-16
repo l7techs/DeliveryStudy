@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="pageTitle">دراسة إطلاق تطبيق توصيل في سوريا</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚴</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-emoji">🚴</span>
+      <div class="brand-text">
+        <h1 data-i18n="siteTitle">دراسة إطلاق تطبيق توصيل الطلبات</h1>
+        <p data-i18n="siteSubtitle">دراسة الترخيص والجدوى المالية — الجمهورية العربية السورية</p>
+      </div>
+    </div>
+    <button id="langToggle" class="lang-toggle" type="button">
+      <span class="lang-toggle-icon">🌐</span>
+      <span id="langToggleLabel">English</span>
+    </button>
+  </div>
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="registration" data-i18n="tabRegistration">متطلبات التسجيل والترخيص</button>
+    <button class="tab-btn" data-tab="financial" data-i18n="tabFinancial">الدراسة المالية</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ============ REGISTRATION SECTION ============ -->
+  <section id="registration" class="tab-panel active">
+
+    <div class="section-intro">
+      <h2 data-i18n="regHeading">خطوات الحصول على التراخيص المطلوبة</h2>
+      <p data-i18n="regIntro">هناك مساران تنظيميان منفصلان يجب إتمامهما: ترخيص الهيئة الناظمة للاتصالات والبريد (SyTRA) لتقديم خدمة التوصيل، واعتمادية التطبيق الإلكتروني. أنجز كل خطوة وحدد التاريخ لتتبع تقدمك.</p>
+      <div class="overall-progress">
+        <div class="progress-label">
+          <span data-i18n="overallProgress">التقدم الإجمالي</span>
+          <span id="overallProgressText">0 / 0</span>
+        </div>
+        <div class="progress-bar-track"><div id="overallProgressBar" class="progress-bar-fill"></div></div>
+      </div>
+    </div>
+
+    <div class="tracks-grid">
+
+      <div class="track-card track-a">
+        <div class="track-header">
+          <span class="track-badge">A</span>
+          <div>
+            <h3 data-i18n="trackATitle">المسار الأول: ترخيص هيئة الاتصالات (SyTRA)</h3>
+            <p data-i18n="trackASubtitle">نظام الترخيص النمطي لتقديم خدمة توصيل الطلبات من خلال المنصات الإلكترونية</p>
+          </div>
+        </div>
+        <div class="track-progress">
+          <div class="progress-bar-track small"><div class="progress-bar-fill" data-track-bar="A"></div></div>
+          <span data-track-text="A">0 / 0</span>
+        </div>
+        <ol class="step-list" id="trackA"></ol>
+      </div>
+
+      <div class="track-card track-b">
+        <div class="track-header">
+          <span class="track-badge">B</span>
+          <div>
+            <h3 data-i18n="trackBTitle">المسار الثاني: اعتمادية التطبيق الإلكتروني</h3>
+            <p data-i18n="trackBSubtitle">متطلبات الحصول على اعتمادية تشغيل التطبيق على الشبكة</p>
+          </div>
+        </div>
+        <div class="track-progress">
+          <div class="progress-bar-track small"><div class="progress-bar-fill" data-track-bar="B"></div></div>
+          <span data-track-text="B">0 / 0</span>
+        </div>
+        <ol class="step-list" id="trackB"></ol>
+      </div>
+
+    </div>
+
+    <div class="reset-row">
+      <button id="resetProgress" class="btn-ghost" type="button" data-i18n="resetBtn">إعادة تصفير التقدم</button>
+    </div>
+  </section>
+
+  <!-- ============ FINANCIAL SECTION ============ -->
+  <section id="financial" class="tab-panel">
+
+    <div class="section-intro">
+      <h2 data-i18n="finHeading">الدراسة المالية</h2>
+      <p data-i18n="finIntro">الأرقام أدناه تُقرأ مباشرة من ملف إكسل المرفق في هذا المستودع. عند تحديث الملف ورفعه، ستتحدث هذه الصفحة تلقائياً عند إعادة تحميلها.</p>
+      <div id="liveStatus" class="live-status">
+        <span class="live-dot"></span>
+        <span data-i18n="liveLoading">جاري تحميل البيانات من ملف إكسل…</span>
+      </div>
+      <a href="data/Delivery.xlsx" class="btn-download" download>
+        <span data-i18n="downloadXlsx">تحميل ملف إكسل الأصلي</span> ⬇
+      </a>
+    </div>
+
+    <div id="finContent" class="fin-content" hidden>
+
+      <div class="stat-grid" id="assumptionStats"></div>
+
+      <div class="fin-block">
+        <h3 data-i18n="investHeading">الاستثمار الأولي المطلوب</h3>
+        <div class="invest-highlight">
+          <div class="invest-figure">
+            <span id="initialInvestment" class="big-number">—</span>
+            <span data-i18n="initialInvestLabel">تكلفة التأسيس (سنة واحدة، موقع واحد)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fin-block">
+        <h3 data-i18n="yearlyHeading">توقعات الإيرادات والأرباح (٥ سنوات)</h3>
+        <div class="table-wrap">
+          <table class="fin-table" id="yearlyTable">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="fin-block">
+        <h3 data-i18n="chartRevenueHeading">الإيرادات والأرباح الشهرية حسب السنة</h3>
+        <div class="chart-wrap"><canvas id="revenueChart"></canvas></div>
+      </div>
+
+      <div class="fin-block">
+        <h3 data-i18n="chartCashHeading">التدفق النقدي التراكمي (٦٠ شهراً)</h3>
+        <div class="chart-wrap"><canvas id="cashFlowChart"></canvas></div>
+      </div>
+
+      <div class="fin-block">
+        <h3 data-i18n="sytraHeading">جدول تقاسم الإيراد مع الهيئة الناظمة</h3>
+        <div class="table-wrap">
+          <table class="fin-table" id="sytraTable">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="finError" class="fin-error" hidden>
+      <p data-i18n="finErrorMsg">تعذّر تحميل ملف البيانات. إذا كنت تفتح هذه الصفحة محلياً من جهازك، افتحها عبر خادم محلي أو زر الموقع المنشور على الإنترنت.</p>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p data-i18n="footerNote">هذه الدراسة إرشادية وتستند إلى الأنظمة الصادرة عن الهيئة الناظمة للاتصالات والبريد في سورية. يُنصح بمراجعة محاسب ومستشار قانوني قبل اتخاذ القرار النهائي.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.1/chart.umd.min.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/registration.js"></script>
+<script src="js/financial.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
