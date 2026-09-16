@@ -63,9 +63,15 @@ html[lang="en"] body { font-family: var(--font-en); }
   gap: 14px;
 }
 
-.brand-emoji {
-  font-size: 2.4rem;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
+.brand-logo {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.92);
+  padding: 5px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+  flex-shrink: 0;
 }
 
 .brand-text h1 {
@@ -576,7 +582,7 @@ html[dir="rtl"] .fin-table thead th:last-child { border-radius: 8px 0 0 0; }
 @media (max-width: 600px) {
   .brand-text h1 { font-size: 1.1rem; }
   .brand-text p { font-size: 0.75rem; }
-  .brand-emoji { font-size: 1.9rem; }
+  .brand-logo { width: 42px; height: 42px; }
   .header-inner { padding-bottom: 14px; }
   .tabs { overflow-x: auto; }
   .tab-btn { padding: 10px 14px; font-size: 0.85rem; white-space: nowrap; }
