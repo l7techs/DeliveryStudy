@@ -62,7 +62,7 @@ async function loadFinancialData() {
       sytraShare: cellVal(main, col + "5")
     }));
 
-    const initialInvestment = cellVal(main, "D28") ?? cellVal(main, "E28");
+    const initialInvestment = cellVal(main, "E28") ?? cellVal(main, "D28");
 
     let cashFlowMonths = [];
     if (cash) {

@@ -124,7 +124,7 @@ html[lang="en"] body { font-family: var(--font-en); }
 .tab-btn:hover { color: #fff; background: rgba(255,255,255,0.08); }
 
 .tab-btn.active {
-  color: #fff;
+  color: var(--primary-dark);
   background: var(--bg);
   border-bottom: 3px solid var(--accent);
 }
