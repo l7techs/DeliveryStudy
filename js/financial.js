@@ -57,12 +57,13 @@ async function loadFinancialData() {
       year: idx + 1,
       riders: cellVal(main, col + "7"),
       locations: cellVal(main, col + "3"),
-      revenue: cellVal(main, col + "15"),
+      revenue: cellVal(main, col + "17"),
       profit: cellVal(main, col + "62"),
       sytraShare: cellVal(main, col + "5")
     }));
 
     const initialInvestment = cellVal(main, "E28") ?? cellVal(main, "D28");
+    const taxRate = cellVal(main, "D56");
 
     let cashFlowMonths = [];
     if (cash) {
@@ -75,7 +76,7 @@ async function loadFinancialData() {
       }
     }
 
-    financialData = { assumptions, yearly, initialInvestment, cashFlowMonths };
+    financialData = { assumptions, yearly, initialInvestment, taxRate, cashFlowMonths };
 
     statusEl.classList.remove("error");
     statusEl.innerHTML = `<span class="live-dot"></span><span data-i18n="liveLoaded">${t("liveLoaded")}</span>`;
@@ -126,7 +127,24 @@ function renderAssumptionStats() {
 }
 
 function renderInitialInvestment() {
-  document.getElementById("initialInvestment").textContent = fmtUSD(financialData.initialInvestment);
+  const investment = financialData.initialInvestment;
+  document.getElementById("initialInvestment").textContent = fmtUSD(investment);
+
+  const year1MonthlyProfit = financialData.yearly[0] ? financialData.yearly[0].profit : null;
+  const roiEl = document.getElementById("roiYear1");
+  const paybackEl = document.getElementById("paybackPeriod");
+
+  if (investment && year1MonthlyProfit !== null && year1MonthlyProfit !== undefined) {
+    const annualProfitYear1 = year1MonthlyProfit * 12;
+    const roi = (annualProfitYear1 / investment) * 100;
+    roiEl.textContent = fmtNum(roi) + "%";
+
+    const paybackMonths = investment / year1MonthlyProfit;
+    paybackEl.textContent = paybackMonths.toFixed(1) + " " + t("months");
+  } else {
+    roiEl.textContent = "—";
+    paybackEl.textContent = "—";
+  }
 }
 
 function renderYearlyTable() {
@@ -158,9 +176,9 @@ function renderSytraTable() {
   const thead = table.querySelector("thead");
   const tbody = table.querySelector("tbody");
 
-  thead.innerHTML = `<tr><th>${t("sytraYear")}</th><th>${t("sytraShare")}</th></tr>`;
+  thead.innerHTML = `<tr><th>${t("sytraYear")}</th><th>${t("sytraShare")}</th><th>${t("sytraTax")}</th></tr>`;
   tbody.innerHTML = financialData.yearly.map(y => `
-    <tr><td>${t("tableYear")} ${y.year}</td><td>${fmtPct(y.sytraShare)}</td></tr>
+    <tr><td>${t("tableYear")} ${y.year}</td><td>${fmtPct(y.sytraShare)}</td><td>${fmtPct(financialData.taxRate)}</td></tr>
   `).join("");
 }
 

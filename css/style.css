@@ -488,6 +488,8 @@ main {
 .invest-highlight {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
   padding: 10px 0;
 }
 
@@ -497,6 +499,12 @@ main {
   border-radius: var(--radius);
   background: linear-gradient(135deg, var(--primary-light), #eef8ff);
 }
+
+.invest-figure-sub {
+  padding: 20px 30px;
+  background: linear-gradient(135deg, #f0fdf6, #eafff4);
+}
+.invest-figure-sub .big-number { color: var(--success); font-size: 2rem; }
 
 .big-number {
   display: block;
