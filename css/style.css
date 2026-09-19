@@ -610,6 +610,7 @@ html[dir="rtl"] .fin-table thead th:last-child { border-radius: 8px 0 0 0; }
 }
 
 .gantt-wrap {
+  direction: ltr;
   overflow-x: auto;
   border: 1px solid var(--border);
   border-radius: 10px;
@@ -641,6 +642,7 @@ html[dir="rtl"] .fin-table thead th:last-child { border-radius: 8px 0 0 0; }
 
 .gantt-row {
   display: grid;
+  width: 900px;
   grid-template-columns: 250px 150px 60px 1fr;
   align-items: center;
   border-bottom: 1px solid var(--border);
@@ -656,6 +658,8 @@ html[dir="rtl"] .fin-table thead th:last-child { border-radius: 8px 0 0 0; }
 }
 
 .gantt-name {
+  grid-column: 1;
+  min-width: 0;
   padding: 6px 10px;
   color: var(--text);
   font-weight: 600;
@@ -666,6 +670,8 @@ html[dir="rtl"] .fin-table thead th:last-child { border-radius: 8px 0 0 0; }
 .phase-name { color: var(--primary-dark); font-weight: 800; }
 
 .gantt-dates {
+  grid-column: 2;
+  min-width: 0;
   padding: 0 8px;
   color: var(--text-light);
   font-size: 0.72rem;
@@ -673,6 +679,7 @@ html[dir="rtl"] .fin-table thead th:last-child { border-radius: 8px 0 0 0; }
 }
 
 .gantt-dur {
+  grid-column: 3;
   text-align: center;
   color: var(--text-light);
   font-weight: 700;
@@ -680,7 +687,9 @@ html[dir="rtl"] .fin-table thead th:last-child { border-radius: 8px 0 0 0; }
 }
 
 .gantt-track {
+  grid-column: 4;
   position: relative;
+  min-width: 0;
   height: 22px;
   margin: 0 8px;
 }
