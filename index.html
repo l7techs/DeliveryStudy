@@ -29,6 +29,7 @@
   <nav class="tabs">
     <button class="tab-btn active" data-tab="registration" data-i18n="tabRegistration">متطلبات التسجيل والترخيص</button>
     <button class="tab-btn" data-tab="financial" data-i18n="tabFinancial">الدراسة المالية</button>
+    <button class="tab-btn" data-tab="timeline" data-i18n="tabTimeline">الخطة الزمنية للإطلاق</button>
   </nav>
 </header>
 
@@ -163,6 +164,43 @@
 
   </section>
 
+  <!-- ============ TIMELINE SECTION ============ -->
+  <section id="timeline" class="tab-panel">
+
+    <div class="section-intro">
+      <h2 data-i18n="timelineHeading">الخطة الزمنية لإطلاق المشروع</h2>
+      <p data-i18n="timelineIntro">تُقرأ هذه الخطة مباشرة من ملف MS Project المرفق في هذا المستودع. عند تحديث الملف ورفعه إلى GitHub، ستتحدث هذه الصفحة تلقائياً عند إعادة تحميلها.</p>
+      <div id="timelineStatus" class="live-status">
+        <span class="live-dot"></span>
+        <span data-i18n="timelineLoading">جاري تحميل بيانات الخطة…</span>
+      </div>
+      <a href="data/Delivery-Launch-Plan.xml" class="btn-download" download>
+        <span data-i18n="downloadPlan">تحميل ملف الخطة (MS Project XML)</span> ⬇
+      </a>
+    </div>
+
+    <div id="timelineContent" class="fin-content" hidden>
+      <div class="stat-grid" id="timelineStats"></div>
+
+      <div class="fin-block">
+        <div class="gantt-legend">
+          <span class="legend-item"><i class="legend-swatch phase"></i><span data-i18n="legendPhase">مرحلة</span></span>
+          <span class="legend-item"><i class="legend-swatch task"></i><span data-i18n="legendTask">مهمة</span></span>
+          <span class="legend-item"><i class="legend-swatch milestone"></i><span data-i18n="legendMilestone">معلم رئيسي</span></span>
+        </div>
+        <div class="gantt-wrap">
+          <div class="gantt-scale" id="ganttScale"></div>
+          <div id="ganttRows"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="timelineError" class="fin-error" hidden>
+      <p data-i18n="finErrorMsg">تعذّر تحميل ملف البيانات. إذا كنت تفتح هذه الصفحة محلياً من جهازك، افتحها عبر خادم محلي أو زر الموقع المنشور على الإنترنت.</p>
+    </div>
+
+  </section>
+
 </main>
 
 <footer class="site-footer">
@@ -174,6 +212,7 @@
 <script src="js/i18n.js"></script>
 <script src="js/registration.js"></script>
 <script src="js/financial.js"></script>
+<script src="js/timeline.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

@@ -6,6 +6,7 @@ const translations = {
     siteSubtitle: "دراسة الترخيص والجدوى المالية — الجمهورية العربية السورية",
     tabRegistration: "متطلبات التسجيل والترخيص",
     tabFinancial: "الدراسة المالية",
+    tabTimeline: "الخطة الزمنية للإطلاق",
 
     regHeading: "خطوات الحصول على التراخيص المطلوبة",
     regIntro: "هناك مساران تنظيميان منفصلان يجب إتمامهما: ترخيص الهيئة الناظمة للاتصالات والبريد (SyTRA) لتقديم خدمة التوصيل، واعتمادية التطبيق الإلكتروني. أنجز كل خطوة وحدد تاريخ الإنجاز لتتبع تقدمك — يُحفظ تقدمك تلقائياً في متصفحك.",
@@ -47,7 +48,21 @@ const translations = {
     sytraTax: "نسبة الضريبة",
     doneOn: "أُنجز بتاريخ",
     dateLabel: "التاريخ:",
-    fee: "الرسم"
+    fee: "الرسم",
+
+    timelineHeading: "الخطة الزمنية لإطلاق المشروع",
+    timelineIntro: "تُقرأ هذه الخطة مباشرة من ملف MS Project المرفق في هذا المستودع. عند تحديث الملف ورفعه إلى GitHub، ستتحدث هذه الصفحة تلقائياً عند إعادة تحميلها.",
+    timelineLoading: "جاري تحميل بيانات الخطة…",
+    timelineLoaded: "بيانات حية من ملف الخطة",
+    downloadPlan: "تحميل ملف الخطة (MS Project XML)",
+    legendPhase: "مرحلة",
+    legendTask: "مهمة",
+    legendMilestone: "معلم رئيسي",
+    statStartDate: "تاريخ بدء المشروع",
+    statLaunchDate: "تاريخ الإطلاق التجاري",
+    statTotalDays: "إجمالي أيام العمل",
+    statPhases: "عدد المراحل",
+    ganttDays: "يوم"
   },
   en: {
     pageTitle: "Delivery App Launch Study — Syria",
@@ -55,6 +70,7 @@ const translations = {
     siteSubtitle: "Licensing & Financial Feasibility Study — Syrian Arab Republic",
     tabRegistration: "Registration & Licensing",
     tabFinancial: "Financial Study",
+    tabTimeline: "Launch Timeline",
 
     regHeading: "Steps to Obtain the Required Licenses",
     regIntro: "There are two separate regulatory tracks to complete: the SyTRA delivery-platform license and the electronic app accreditation. Check off each step and record the date to track your progress — your progress is saved automatically in your browser.",
@@ -96,7 +112,21 @@ const translations = {
     sytraTax: "Tax Rate",
     doneOn: "Done on",
     dateLabel: "Date:",
-    fee: "Fee"
+    fee: "Fee",
+
+    timelineHeading: "Project Launch Timeline",
+    timelineIntro: "This timeline is read live from the MS Project file included in this repository. Update the file and push it to GitHub, and this page will reflect the new schedule on next reload.",
+    timelineLoading: "Loading the plan data…",
+    timelineLoaded: "Live data from the plan file",
+    downloadPlan: "Download the plan file (MS Project XML)",
+    legendPhase: "Phase",
+    legendTask: "Task",
+    legendMilestone: "Milestone",
+    statStartDate: "Project Start Date",
+    statLaunchDate: "Commercial Launch Date",
+    statTotalDays: "Total Working Days",
+    statPhases: "Number of Phases",
+    ganttDays: "days"
   }
 };
 

@@ -576,6 +576,148 @@ html[dir="rtl"] .fin-table thead th:last-child { border-radius: 8px 0 0 0; }
   font-size: 0.9rem;
 }
 
+/* ============ TIMELINE / GANTT ============ */
+.gantt-legend {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.legend-swatch {
+  width: 16px;
+  height: 12px;
+  border-radius: 3px;
+  display: inline-block;
+}
+.legend-swatch.phase { background: var(--primary-dark); }
+.legend-swatch.task { background: var(--primary); }
+.legend-swatch.milestone {
+  background: var(--accent);
+  border-radius: 2px;
+  transform: rotate(45deg);
+  width: 11px;
+  height: 11px;
+}
+
+.gantt-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.gantt-scale {
+  position: relative;
+  height: 32px;
+  min-width: 900px;
+  background: var(--primary-light);
+  border-bottom: 1px solid var(--border);
+}
+
+.gantt-month {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-inline-start: 1px dashed rgba(15, 76, 129, 0.35);
+  padding-inline-start: 6px;
+  display: flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  white-space: nowrap;
+}
+
+#ganttRows { min-width: 900px; }
+
+.gantt-row {
+  display: grid;
+  grid-template-columns: 250px 150px 60px 1fr;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  min-height: 34px;
+  font-size: 0.8rem;
+}
+.gantt-row:hover { background: #f8fafc; }
+.gantt-row:last-child { border-bottom: none; }
+
+.gantt-row.phase {
+  background: var(--primary-light);
+  font-weight: 800;
+}
+
+.gantt-name {
+  padding: 6px 10px;
+  color: var(--text);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.phase-name { color: var(--primary-dark); font-weight: 800; }
+
+.gantt-dates {
+  padding: 0 8px;
+  color: var(--text-light);
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.gantt-dur {
+  text-align: center;
+  color: var(--text-light);
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.gantt-track {
+  position: relative;
+  height: 22px;
+  margin: 0 8px;
+}
+
+.gantt-bar {
+  position: absolute;
+  top: 3px;
+  height: 16px;
+  min-width: 4px;
+  background: var(--primary);
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+.phase-bar {
+  background: var(--primary-dark);
+  height: 10px;
+  top: 6px;
+  border-radius: 3px;
+}
+
+.gantt-milestone {
+  position: absolute;
+  top: 2px;
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  transform: translateX(-50%) rotate(45deg);
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+
+@media (max-width: 780px) {
+  .gantt-row { grid-template-columns: 170px 0 0 1fr; }
+  .gantt-dates, .gantt-dur { display: none; }
+}
+
 /* ============ FOOTER ============ */
 .site-footer {
   text-align: center;
