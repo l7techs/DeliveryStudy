@@ -617,17 +617,27 @@ html[dir="rtl"] .fin-table thead th:last-child { border-radius: 8px 0 0 0; }
 }
 
 .gantt-scale {
-  position: relative;
+  display: grid;
+  width: 900px;
+  grid-template-columns: 250px 150px 60px 1fr;
   height: 32px;
-  min-width: 900px;
   background: var(--primary-light);
   border-bottom: 1px solid var(--border);
 }
 
+.gantt-scale-spacer { grid-column: 1 / 4; }
+
+.gantt-scale-track {
+  grid-column: 4;
+  position: relative;
+  min-width: 0;
+  margin: 0 8px;
+}
+
 .gantt-month {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: -8px;
+  bottom: -8px;
   border-inline-start: 1px dashed rgba(15, 76, 129, 0.35);
   padding-inline-start: 6px;
   display: flex;
@@ -676,6 +686,8 @@ html[dir="rtl"] .fin-table thead th:last-child { border-radius: 8px 0 0 0; }
   color: var(--text-light);
   font-size: 0.72rem;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .gantt-dur {
@@ -723,7 +735,7 @@ html[dir="rtl"] .fin-table thead th:last-child { border-radius: 8px 0 0 0; }
 }
 
 @media (max-width: 780px) {
-  .gantt-row { grid-template-columns: 170px 0 0 1fr; }
+  .gantt-row, .gantt-scale { grid-template-columns: 170px 0 0 1fr; }
   .gantt-dates, .gantt-dur { display: none; }
 }
 

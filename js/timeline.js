@@ -1,7 +1,7 @@
 // ============ Timeline / Gantt loader (reads the MS Project XML live) ============
 
 let timelineTasks = null;
-const GANTT_HOURS_PER_DAY = 9; // matches the project's real calendar: Sun-Thu, 08:00-17:00
+let ganttHoursPerDay = 8; // overwritten from the file's own <MinutesPerDay> on load — never assume a fixed calendar
 
 function parseIsoDuration(iso) {
   if (!iso) return 0;
@@ -14,7 +14,7 @@ function parseIsoDuration(iso) {
 }
 
 function formatDurationDays(hours) {
-  let days = hours / GANTT_HOURS_PER_DAY;
+  let days = hours / ganttHoursPerDay;
   days = Math.round(days * 8) / 8; // nearest eighth of a day (preserves values like 4.625)
   if (Math.abs(days - Math.round(days)) < 0.01) days = Math.round(days);
   return days;
@@ -43,6 +43,12 @@ async function loadTimelineData() {
     const text = await res.text();
     const doc = new DOMParser().parseFromString(text, "application/xml");
     if (doc.getElementsByTagName("parsererror").length) throw new Error("XML parse error");
+
+    const minutesPerDayNodes = doc.getElementsByTagName("MinutesPerDay");
+    if (minutesPerDayNodes.length) {
+      const mpd = parseInt(minutesPerDayNodes[0].textContent, 10);
+      if (mpd > 0) ganttHoursPerDay = mpd / 60;
+    }
 
     const taskEls = Array.from(doc.getElementsByTagName("Task"));
     const tasks = taskEls.map(el => {
@@ -122,11 +128,12 @@ function renderGantt(tasks) {
     months.push(new Date(cursor));
     cursor = new Date(cursor.getFullYear(), cursor.getMonth() + 1, 1);
   }
-  scaleEl.innerHTML = months.map(m => {
+  const monthsHtml = months.map(m => {
     const left = Math.max(0, pct(m));
     const label = m.toLocaleDateString(currentLang === "ar" ? "ar-SY" : "en-US", { year: "numeric", month: "short" });
     return `<div class="gantt-month" style="left:${left}%"><span>${label}</span></div>`;
   }).join("");
+  scaleEl.innerHTML = `<div class="gantt-scale-spacer"></div><div class="gantt-scale-track">${monthsHtml}</div>`;
 
   const rowsEl = document.getElementById("ganttRows");
   rowsEl.innerHTML = tasks.map(task => {
