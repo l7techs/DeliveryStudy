@@ -53,13 +53,15 @@ async function loadFinancialData() {
       ordersPerRider: cellVal(main, "D10")
     };
 
+    const forexRate = cellVal(main, "B1") || 1;
+
     const yearly = years.map((col, idx) => ({
       year: idx + 1,
       riders: cellVal(main, col + "7"),
       locations: cellVal(main, col + "3"),
       revenue: cellVal(main, col + "17"),
       profit: cellVal(main, col + "62"),
-      sytraShare: cellVal(main, col + "5")
+      sytraAnnualFee: (cellVal(main, col + "15") ?? 0) / forexRate
     }));
 
     const initialInvestment = cellVal(main, "E28") ?? cellVal(main, "D28");
@@ -178,7 +180,7 @@ function renderSytraTable() {
 
   thead.innerHTML = `<tr><th>${t("sytraYear")}</th><th>${t("sytraShare")}</th><th>${t("sytraTax")}</th></tr>`;
   tbody.innerHTML = financialData.yearly.map(y => `
-    <tr><td>${t("tableYear")} ${y.year}</td><td>${fmtPct(y.sytraShare)}</td><td>${fmtPct(financialData.taxRate)}</td></tr>
+    <tr><td>${t("tableYear")} ${y.year}</td><td>${fmtUSD(y.sytraAnnualFee)}</td><td>${fmtPct(financialData.taxRate)}</td></tr>
   `).join("");
 }
 

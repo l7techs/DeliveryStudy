@@ -5324,7 +5324,7 @@
 				<PredecessorUID>50</PredecessorUID>
 				<Type>1</Type>
 				<CrossProject>0</CrossProject>
-				<LinkLag>144000</LinkLag>
+				<LinkLag>14400</LinkLag>
 				<LagFormat>7</LagFormat>
 			</PredecessorLink>
 			<PredecessorLink>
