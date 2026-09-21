@@ -576,6 +576,100 @@ html[dir="rtl"] .fin-table thead th:last-child { border-radius: 8px 0 0 0; }
   font-size: 0.9rem;
 }
 
+/* ============ PASSWORD GATE ============ */
+.password-gate {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--gradient-header);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+html.gate-locked .password-gate { display: flex; }
+html.gate-locked body > .site-header,
+html.gate-locked body > main,
+html.gate-locked body > .site-footer { display: none; }
+
+.gate-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 40px 34px;
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.gate-card.shake { animation: gateShake 0.4s ease; }
+@keyframes gateShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
+
+.gate-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: var(--primary-light);
+  padding: 6px;
+  margin-bottom: 16px;
+}
+
+.gate-card h2 {
+  margin: 0 0 6px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+}
+
+.gate-card > p {
+  margin: 0 0 20px;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.gate-form { display: flex; flex-direction: column; gap: 12px; }
+
+.gate-input {
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 1.1rem;
+  font-family: inherit;
+  text-align: center;
+  letter-spacing: 0.3em;
+  color: var(--text);
+}
+.gate-input:focus { outline: none; border-color: var(--primary); }
+
+.gate-btn {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.gate-btn:hover { background: var(--primary-dark); }
+
+.gate-error {
+  margin: 0;
+  color: #dc2626;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
 /* ============ TIMELINE / GANTT ============ */
 .gantt-legend {
   display: flex;

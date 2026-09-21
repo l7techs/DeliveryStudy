@@ -62,7 +62,13 @@ const translations = {
     statLaunchDate: "تاريخ الإطلاق التجاري",
     statTotalDays: "إجمالي أيام العمل",
     statPhases: "عدد المراحل",
-    ganttDays: "يوم"
+    ganttDays: "يوم",
+
+    gateTitle: "هذه الصفحة محمية",
+    gateSubtitle: "الرجاء إدخال كلمة المرور للمتابعة",
+    gatePlaceholder: "كلمة المرور",
+    gateSubmit: "دخول",
+    gateError: "كلمة المرور غير صحيحة"
   },
   en: {
     pageTitle: "Delivery App Launch Study — Syria",
@@ -126,7 +132,13 @@ const translations = {
     statLaunchDate: "Commercial Launch Date",
     statTotalDays: "Total Working Days",
     statPhases: "Number of Phases",
-    ganttDays: "days"
+    ganttDays: "days",
+
+    gateTitle: "This page is protected",
+    gateSubtitle: "Please enter the password to continue",
+    gatePlaceholder: "Password",
+    gateSubmit: "Enter",
+    gateError: "Incorrect password"
   }
 };
 
@@ -139,6 +151,12 @@ function applyTranslations(lang) {
     const key = el.getAttribute("data-i18n");
     if (translations[lang] && translations[lang][key] !== undefined) {
       el.textContent = translations[lang][key];
+    }
+  });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    if (translations[lang] && translations[lang][key] !== undefined) {
+      el.placeholder = translations[lang][key];
     }
   });
   document.getElementById("langToggleLabel").textContent = lang === "ar" ? "English" : "عربي";

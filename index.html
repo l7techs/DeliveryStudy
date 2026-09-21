@@ -1,6 +1,15 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="gate-locked">
 <head>
+<script>
+  (function () {
+    if (localStorage.getItem("siteUnlocked") !== "1") {
+      document.documentElement.classList.add("gate-locked");
+    } else {
+      document.documentElement.classList.remove("gate-locked");
+    }
+  })();
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title data-i18n="pageTitle">دراسة إطلاق تطبيق توصيل في سوريا</title>
@@ -11,6 +20,19 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+<div id="passwordGate" class="password-gate">
+  <div class="gate-card">
+    <img class="gate-logo" src="icon/ic_launcher.png" alt="logo">
+    <h2 data-i18n="gateTitle">هذه الصفحة محمية</h2>
+    <p data-i18n="gateSubtitle">الرجاء إدخال كلمة المرور للمتابعة</p>
+    <form id="gateForm" class="gate-form" autocomplete="off">
+      <input type="password" id="gatePasswordInput" class="gate-input" data-i18n-placeholder="gatePlaceholder" placeholder="كلمة المرور" inputmode="numeric" autofocus>
+      <button type="submit" class="gate-btn" data-i18n="gateSubmit">دخول</button>
+      <p id="gateError" class="gate-error" data-i18n="gateError" hidden>كلمة المرور غير صحيحة</p>
+    </form>
+  </div>
+</div>
 
 <header class="site-header">
   <div class="header-inner">
@@ -210,6 +232,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.1/chart.umd.min.js"></script>
 <script src="js/i18n.js"></script>
+<script src="js/gate.js"></script>
 <script src="js/registration.js"></script>
 <script src="js/financial.js"></script>
 <script src="js/timeline.js"></script>
