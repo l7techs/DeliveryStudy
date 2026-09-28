@@ -670,6 +670,60 @@ html.gate-locked body > .site-footer { display: none; }
   font-weight: 600;
 }
 
+/* ============ DOCUMENTS ============ */
+.documents-list {
+  display: grid;
+  gap: 14px;
+}
+
+.doc-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.doc-icon { font-size: 1.8rem; flex-shrink: 0; }
+
+.doc-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.doc-name {
+  font-weight: 700;
+  color: var(--text);
+  font-size: 0.95rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.doc-size {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+.doc-download {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 8px 18px;
+  font-size: 0.82rem;
+}
+
+@media (max-width: 600px) {
+  .doc-card { padding: 14px; gap: 10px; }
+  .doc-icon { font-size: 1.4rem; }
+  .doc-download { padding: 7px 14px; font-size: 0.78rem; }
+}
+
 /* ============ TIMELINE / GANTT ============ */
 .gantt-legend {
   display: flex;

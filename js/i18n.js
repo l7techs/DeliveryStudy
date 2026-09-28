@@ -7,6 +7,7 @@ const translations = {
     tabRegistration: "متطلبات التسجيل والترخيص",
     tabFinancial: "الدراسة المالية",
     tabTimeline: "الخطة الزمنية للإطلاق",
+    tabDocuments: "المستندات",
 
     regHeading: "خطوات الحصول على التراخيص المطلوبة",
     regIntro: "هناك مساران تنظيميان منفصلان يجب إتمامهما: ترخيص الهيئة الناظمة للاتصالات والبريد (SyTRA) لتقديم خدمة التوصيل، واعتمادية التطبيق الإلكتروني. أنجز كل خطوة وحدد تاريخ الإنجاز لتتبع تقدمك — يُحفظ تقدمك تلقائياً في متصفحك.",
@@ -68,7 +69,15 @@ const translations = {
     gateSubtitle: "الرجاء إدخال كلمة المرور للمتابعة",
     gatePlaceholder: "كلمة المرور",
     gateSubmit: "دخول",
-    gateError: "كلمة المرور غير صحيحة"
+    gateError: "كلمة المرور غير صحيحة",
+
+    documentsHeading: "المستندات",
+    documentsIntro: "هذه المستندات تُقرأ مباشرة من مجلد المستودع على GitHub. أضف أي ملف إلى المجلد ورفعه، وسيظهر هنا تلقائياً عند إعادة تحميل الصفحة.",
+    documentsLoading: "جاري تحميل قائمة المستندات…",
+    documentsLoaded: "قائمة حية من مستودع GitHub",
+    documentsEmptyMsg: "لا توجد مستندات بعد.",
+    documentsErrorMsg: "تعذّر تحميل قائمة المستندات. إذا كنت تفتح هذه الصفحة محلياً من جهازك، افتحها عبر خادم محلي أو زر الموقع المنشور على الإنترنت.",
+    downloadLabel: "تحميل"
   },
   en: {
     pageTitle: "Delivery App Launch Study — Syria",
@@ -77,6 +86,7 @@ const translations = {
     tabRegistration: "Registration & Licensing",
     tabFinancial: "Financial Study",
     tabTimeline: "Launch Timeline",
+    tabDocuments: "Documents",
 
     regHeading: "Steps to Obtain the Required Licenses",
     regIntro: "There are two separate regulatory tracks to complete: the SyTRA delivery-platform license and the electronic app accreditation. Check off each step and record the date to track your progress — your progress is saved automatically in your browser.",
@@ -138,7 +148,15 @@ const translations = {
     gateSubtitle: "Please enter the password to continue",
     gatePlaceholder: "Password",
     gateSubmit: "Enter",
-    gateError: "Incorrect password"
+    gateError: "Incorrect password",
+
+    documentsHeading: "Documents",
+    documentsIntro: "These documents are read live from the repository's folder on GitHub. Add any file to the folder and upload it, and it will appear here automatically on next reload.",
+    documentsLoading: "Loading the document list…",
+    documentsLoaded: "Live list from the GitHub repository",
+    documentsEmptyMsg: "No documents yet.",
+    documentsErrorMsg: "Could not load the document list. If you're viewing this page locally, serve it through a local web server or visit the published website instead.",
+    downloadLabel: "Download"
   }
 };
 

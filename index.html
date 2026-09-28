@@ -52,6 +52,7 @@
     <button class="tab-btn active" data-tab="registration" data-i18n="tabRegistration">متطلبات التسجيل والترخيص</button>
     <button class="tab-btn" data-tab="financial" data-i18n="tabFinancial">الدراسة المالية</button>
     <button class="tab-btn" data-tab="timeline" data-i18n="tabTimeline">الخطة الزمنية للإطلاق</button>
+    <button class="tab-btn" data-tab="documents" data-i18n="tabDocuments">المستندات</button>
   </nav>
 </header>
 
@@ -223,6 +224,30 @@
 
   </section>
 
+  <!-- ============ DOCUMENTS SECTION ============ -->
+  <section id="documents" class="tab-panel">
+
+    <div class="section-intro">
+      <h2 data-i18n="documentsHeading">المستندات</h2>
+      <p data-i18n="documentsIntro">هذه المستندات تُقرأ مباشرة من مجلد المستودع على GitHub. أضف أي ملف إلى المجلد ورفعه، وسيظهر هنا تلقائياً عند إعادة تحميل الصفحة.</p>
+      <div id="documentsStatus" class="live-status">
+        <span class="live-dot"></span>
+        <span data-i18n="documentsLoading">جاري تحميل قائمة المستندات…</span>
+      </div>
+    </div>
+
+    <div id="documentsList" class="documents-list" hidden></div>
+
+    <div id="documentsEmpty" class="section-intro" hidden>
+      <p data-i18n="documentsEmptyMsg">لا توجد مستندات بعد.</p>
+    </div>
+
+    <div id="documentsError" class="fin-error" hidden>
+      <p data-i18n="documentsErrorMsg">تعذّر تحميل قائمة المستندات. إذا كنت تفتح هذه الصفحة محلياً من جهازك، افتحها عبر خادم محلي أو زر الموقع المنشور على الإنترنت.</p>
+    </div>
+
+  </section>
+
 </main>
 
 <footer class="site-footer">
@@ -236,6 +261,7 @@
 <script src="js/registration.js"></script>
 <script src="js/financial.js"></script>
 <script src="js/timeline.js"></script>
+<script src="js/documents.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
